@@ -102,7 +102,7 @@
   <script>
    $(document).ready(function() {
     var selected = [];
-    var Request = [];
+    
     $(".selected").click(function(){
       alert(this.id);
       selected.push( this.id );
@@ -121,7 +121,14 @@
       var fullname = $("#fullname").val();
       var email = $("#email").val();
       var phone = $("#phone").val();
-      Request.push({"name":fullname,"email": email,"phone":phone,"img_list":selected});
+      //Request.push({"name":fullname,"email": email,"phone":phone,"img_list":selected});
+
+      var Request = {
+        fullname : $("#fullname").val(),
+        email : $("#email").val(),
+        phone : $("#phone").val(),
+        request : {selected}
+         }
 
       $.ajax({
             url: "https://megabackend.herokuapp.com/svcc/svcc18", 
