@@ -122,7 +122,6 @@
       var email = $("#email").val();
       var phone = $("#phone").val();
       Request.push({"name":fullname,"email": email,"phone":phone,"img_list":selected});
-      // https://megabackend.herokuapp.com/svcc/svcc18
 
       $.ajax({
             url: "https://megabackend.herokuapp.com/svcc/svcc18", 
@@ -134,6 +133,8 @@
               console.log(result);
             }
     });
+
+  })
 
     $("#murti-button").click(function(){
       $("#murti").show();
