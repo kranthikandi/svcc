@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>aside - Bootstrap 4 web application</title>
+  <!-- <meta name="description" content="Responsive, Bootstrap, BS4" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
+
+  <!-- for ios 7 style, multi-resolution icon of 152x152 -->
+  <!-- <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-barstyle" content="black-translucent">
+  <link rel="apple-touch-icon" href="images/logo.png">
+  <meta name="apple-mobile-web-app-title" content="Flatkit"> -->
+  <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
+  <!-- <meta name="mobile-web-app-capable" content="yes">
+  <link rel="shortcut icon" sizes="196x196" href="images/logo.png"> -->
+  
+  <!-- style -->
+  <!-- <link rel="stylesheet" href="css/animate.css/animate.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/glyphicons/glyphicons.css" type="text/css" />-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+  <!-- <link rel="stylesheet" href="css/material-design-icons/material-design-icons.css" type="text/css" /> 
+  <link rel="stylesheet" href="css/ionicons/css/ionicons.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/simple-line-icons/css/simple-line-icons.css" type="text/css" />-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" type="text/css" />
+
+  <!-- build:css css/styles/app.min.css -->
+  <link rel="stylesheet" href="/css/app.css" type="text/css" />
+  <link rel="stylesheet" href="/css/style.css" type="text/css" />
+  <!-- endbuild -->
+  <!-- <link rel="stylesheet" href="css/styles/font.css" type="text/css" /> -->
+
+  <link rel="stylesheet" href="/css/svcc.css" type="text/css" />
+</head>
+<body>
+  <div class="app" id="app">
+        <div class="app-header white bg b-b">
+        <div class="navbar" data-pjax>
+                <a data-toggle="modal" data-target="#aside" class="navbar-item pull-left hidden-lg-up p-r m-a-0">
+                  <i class="ion-navicon"></i>
+                </a>
+                <div class="navbar-item pull-left h5" id="pageTitle">SVCC</div>
+                <div class="navbar-item pull-center h5" id="pageTitle">
+                  <span id="murti-button" style="">Murti</span>
+                  <span id="devotee-button" style="">Devotees</span>
+                </div>
+                <div class="navbar-item pull-right h5" id="checkout">Request</div>
+          </div>
+          </div>
+<span id="murti">
+<span class="img__wrap">
+    <img class="img__img" id="1" src="/svcc/IMG_6745.JPG" />
+    <span class="img__description_layer_left">
+      <p class="img__description">#1</p>
+    </span>
+    <span class="img__description_layer_right">
+        <span class="selected" id="IMG_6746.JPG" >select</span>
+      </span>
+</span>
+<span class="img__wrap">
+    <img class="img__img" id="2" src="/svcc/IMG_6747.JPG" />
+    <span class="img__description_layer_left">
+        <p class="img__description">#2</p>
+      </span>
+      <span class="img__description_layer_right">
+          <span class="selected" id="IMG_6747.JPG" >select</span>
+        </span>
+</span>
+</span>
+<div id="devotee" style="display:none;">
+    <span class="img__wrap">
+        <img class="img__img" id="1" src="/svcc/IMG_6752.JPG" />
+        <span class="img__description_layer_left">
+          <p class="img__description">#1</p>
+        </span>
+        <span class="img__description_layer_right">
+            <span class="selected" id="IMG_6746.JPG" >select</span>
+          </span>
+    </span>
+    <span class="img__wrap">
+        <img class="img__img" id="2" src="/svcc/IMG_6761.JPG" />
+        <span class="img__description_layer_left">
+            <p class="img__description">#2</p>
+          </span>
+          <span class="img__description_layer_right">
+              <span class="selected" id="IMG_6747.JPG" >select</span>
+            </span>
+    </span>
+  </div>
+<div style="display:none; margin-top: 75px;padding-bottom: 60px; " class="box padding" id="cart">
+    <div class="form-group row">
+        <label class="col-sm-2 form-control-label">Fullname</label>
+        <div class="col-sm-10">
+          <input id="fullname"type="text" class="form-control rounded">
+        </div>
+      </div>
+    <div class="form-group row">
+        <label class="col-sm-2 form-control-label">Email</label>
+        <div class="col-sm-10">
+          <input id="email"type="text" class="form-control rounded">
+        </div>
+      </div>
+    <div class="form-group row">
+        <label class="col-sm-2 form-control-label">Phone</label>
+        <div class="col-sm-10">
+          <input id="phone" type="text" class="form-control rounded">
+        </div>
+      </div>
+      <button class="btn green pull-right"  id="request">Request</button>
+      <a href='#' id="download" >Download CSV</a>
+
+</div>
+
+<!-- ############ LAYOUT END-->
+   </div>
+
+   
+<!-- build:js scripts/app.min.js -->
+<!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+  <script>
+   $(document).ready(function() {
+    var selected = [];
+    var Request = [];
+    $(".selected").click(function(){
+      alert(this.id);
+      selected.push( this.id );
+    })
+
+    $("#checkout").click(function(){
+      $("#murti").hide();
+      $("#devotee").hide();
+      $("#cart").show();
+      
+    })
+
+    $("#request").click(function(){
+      console.log(selected);
+      
+      var fullname = $("#fullname").val();
+      var email = $("#email").val();
+      var phone = $("#phone").val();
+      Request.push({"name":fullname,"email": email,"phone":phone,"img_list":selected});
+      console.log(Request);
+    })
+
+    $("#murti-button").click(function(){
+      $("#murti").show();
+      $("#devotee").hide();
+      $("#cart").hide();
+    })
+    $("#devotee-button").click(function(){
+      $("#murti").hide();
+      $("#devotee").show();
+      $("#cart").hide();
+    })
+ 
+    $("#download").click(function(){
+      downloadCSV();
+    })
+  
+ 
+  var stockData = [
+      {
+          Symbol: "AAPL",
+          Company: "Apple Inc.",
+          Price: "132.54"
+      },
+      {
+          Symbol: "INTC",
+          Company: "Intel Corporation",
+          Price: "33.45"
+      },
+      {
+          Symbol: "GOOG",
+          Company: "Google Inc",
+          Price: "554.52"
+      },
+  ];
+
+  function convertArrayOfObjectsToCSV(args) {
+      var result, ctr, keys, columnDelimiter, lineDelimiter, data;
+
+      data = args.data || null;
+      if (data == null || !data.length) {
+          return null;
+      }
+
+      columnDelimiter = args.columnDelimiter || ',';
+      lineDelimiter = args.lineDelimiter || '\n';
+
+      keys = Object.keys(data[0]);
+
+      result = '';
+      result += keys.join(columnDelimiter);
+      result += lineDelimiter;
+
+      data.forEach(function(item) {
+          ctr = 0;
+          keys.forEach(function(key) {
+              if (ctr > 0) result += columnDelimiter;
+
+              result += item[key];
+              ctr++;
+          });
+          result += lineDelimiter;
+      });
+
+      return result;
+  }
+
+  function downloadCSV() {
+    alert("downloading")
+      var data, filename, link;
+
+      var csv = convertArrayOfObjectsToCSV({
+          data: Request
+      });
+      if (csv == null) return;
+
+      filename = 'export.csv';
+
+      if (!csv.match(/^data:text\/csv/i)) {
+          csv = 'data:text/csv;charset=utf-8,' + csv;
+      }
+      data = encodeURI(csv);
+
+      link = document.createElement('a');
+      link.setAttribute('href', data);
+      link.setAttribute('download', filename);
+      link.click();
+  }
+});
+</script>  
+<!-- Bootstrap -->
+  <!-- <script src="libs/tether/dist/js/tether.min.js"></script> -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!-- core -->
+  <!-- <script src="libs/jQuery-Storage-API/jquery.storageapi.min.js"></script>
+  <script src="libs/PACE/pace.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.blockUI/2.70/jquery.blockUI.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jscroll/2.4.1/jquery.jscroll.min.js"></script>
+
+  <!-- <script src="scripts/config.lazyload.js"></script>
+  <script src="scripts/ui-load.js"></script>
+  <script src="scripts/ui-jp.js"></script>
+  <script src="scripts/ui-include.js"></script>
+  <script src="scripts/ui-device.js"></script>
+  <script src="scripts/ui-form.js"></script>
+  <script src="scripts/ui-modal.js"></script>
+  <script src="scripts/ui-nav.js"></script>
+  <script src="scripts/ui-list.js"></script>
+  <script src="scripts/ui-screenfull.js"></script>
+  <script src="scripts/ui-scroll-to.js"></script>
+  <script src="scripts/ui-toggle-class.js"></script>
+  <script src="scripts/ui-taburl.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/ajax.js"></script> -->
+<!-- endbuild -->
+</body>
+</html>
