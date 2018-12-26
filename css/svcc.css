@@ -6,6 +6,8 @@
     }
     .img__img{
         height: 400px;
+        border: 10px solid #7cb5bbd1;
+        margin-bottom: 5px;
     }
     
     .img__description_layer_left {
