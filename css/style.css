@@ -1,0 +1,98 @@
+.brand-animate {
+    -webkit-animation: rotate 1s infinite linear;
+    animation: rotate 1s infinite linear;
+
+    transform-origin: 24px 24px;
+    -webkit-transform-origin: 24px 24px;
+
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+
+    -webkit-transition: all 0.3s ease-in-out;
+  	transition: all 0.3s ease-in-out;
+
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+}
+
+.pace-running .brand-animate{
+    -webkit-animation-play-state: running;
+    animation-play-state: running;
+}
+
+.pace-done .brand-animate{
+    opacity: 0;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
+
+.addNew1{
+  z-index: 1000;
+    position: fixed;
+    top: 80px;
+    right: 0px;
+    width: 240px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border-radius: 50%;
+}
+.customerTable{
+  
+}
+
+.infoText{
+  color: inherit !important;
+  opacity: 0.6;
+  margin-bottom: 0px !important;
+}
+
+.jobs{
+  z-index: 1000;
+  position: fixed;
+  top: 200px;
+  right: 20px;
+  -webkit-transition: right 0.2s ease;
+  transition: right 0.2s ease;
+  border: 1px solid rgba(120, 120, 120, 0.1);
+  background-clip: padding-box;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border-radius: 50%;
+  font-size: 25px;
+}
+.addNew{
+  text-align: right;
+  padding: 10px 10px 0px 10px;
+}
+.headercrumb{
+  background-color: #ffffff;
+  padding: 0%;
+  margin: 0%;
+}
+.smallButton{
+  width: 40px !important;
+  height: 40px !important;
+  line-height: 25px !important;
+  z-index: 50;
+}
