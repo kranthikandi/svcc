@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - HelloHP",
+            "request": "launch",
+            "mainClass": "HelloHP"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - filename",
+            "request": "launch",
+            "mainClass": "filename"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MainClass",
+            "request": "launch",
+            "mainClass": "MainClass"
+        }
+    ]
+}
