@@ -2405,11 +2405,11 @@ $(document).ready(function () {
         $("#devotee").hide();
         $("#cart").hide();
         $("#murti").empty();
-        for (var i = 0; i < devoteeimgs.length; i++) {
+        for (var i = 0; i < mutris.length; i++) {
             //console.log(devoteeimgs[i]);
             var j = i+1;
-            var span = '<span class="img__wrap"><img class="img__img" id="2" src="' + devoteeimgs[i] + '" /> <span class="img__description_layer_left"><p class="img__description">' + j + '</p></span>' +
-                '<span class="img__description_layer_right"><span class="selected" id="' + devoteeimgs[i] + '" >select</span></span></span>';
+            var span = '<span class="img__wrap"><img class="img__img" id="2" src="' + mutris[i] + '" /> <span class="img__description_layer_left"><p class="img__description">' + j + '</p></span>' +
+                '<span class="img__description_layer_right"><span class="selected" id="' + mutris[i] + '" >select</span></span></span>';
             $("#murti").append(span);
 
         }
@@ -2420,11 +2420,11 @@ $(document).ready(function () {
       $("#devotee").show();
       $("#cart").hide();
         $("#devotee").empty();
-        for (var i = 0; i < mutris.length; i++) {
+        for (var i = 0; i < devoteeimgs.length; i++) {
             //console.log(devoteeimgs[i]);
             var j = i+1
-            var span = '<span class="img__wrap"><img class="img__img" id="2" src="' + mutris[i] + '" /> <span class="img__description_layer_left"><p class="img__description">' + i + '</p></span>' +
-                '<span class="img__description_layer_right"><span class="selected" id="' + mutris[i] + '" >select</span></span></span>';
+            var span = '<span class="img__wrap"><img class="img__img" id="2" src="' + devoteeimgs[i] + '" /> <span class="img__description_layer_left"><p class="img__description">' + j + '</p></span>' +
+                '<span class="img__description_layer_right"><span class="selected" id="' + devoteeimgs[i] + '" >select</span></span></span>';
             $("#devotee").append(span);
 
         }
