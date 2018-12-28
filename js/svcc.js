@@ -2395,6 +2395,49 @@ $(document).ready(function () {
 "devotee/IMG_9815.JPG	",
 "devotee/IMG_9816.JPG	",
     ]
+    var selected = [];
+    
+    $(".selected").click(function(){
+      alert(this.id);
+      selected.push( this.id );
+    })
+
+    $("#checkout").click(function(){
+      $("#murti").hide();
+      $("#devotee").hide();
+      $("#cart").show();
+      
+    })
+
+    $("#request").click(function(){
+      console.log(selected);
+      
+      var fullname = $("#fullname").val();
+      var email = $("#email").val();
+      var phone = $("#phone").val();
+      //Request.push({"name":fullname,"email": email,"phone":phone,"img_list":selected});
+
+      var Request = {
+        fullname : $("#fullname").val(),
+        email : $("#email").val(),
+        phone : $("#phone").val(),
+        request : {selected}
+         }
+
+      $.ajax({
+            url: "https://megabackend.herokuapp.com/svcc/svcc18", 
+            data: JSON.stringify(Request),
+            type: 'post',
+            dataType: 'json',
+            contentType: 'application/json',    
+            success: function(result){
+              console.log(result);
+              if(result.msg == "success"){
+                alert("We will email/message you the requested photos. Thank you!!")
+              }
+            }
+    });
+})
 
 
     $("#murti-button").click(function(){

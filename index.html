@@ -4064,61 +4064,6 @@
 <!-- jQuery -->
   <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
-  <script>
-   $(document).ready(function() {
-    var selected = [];
-    
-    $(".selected").click(function(){
-      alert(this.id);
-      selected.push( this.id );
-    })
-
-    $("#checkout").click(function(){
-      $("#murti").hide();
-      $("#devotee").hide();
-      $("#cart").show();
-      
-    })
-
-    $("#request").click(function(){
-      console.log(selected);
-      
-      var fullname = $("#fullname").val();
-      var email = $("#email").val();
-      var phone = $("#phone").val();
-      //Request.push({"name":fullname,"email": email,"phone":phone,"img_list":selected});
-
-      var Request = {
-        fullname : $("#fullname").val(),
-        email : $("#email").val(),
-        phone : $("#phone").val(),
-        request : {selected}
-         }
-
-      $.ajax({
-            url: "https://megabackend.herokuapp.com/svcc/svcc18", 
-            data: JSON.stringify(Request),
-            type: 'post',
-            dataType: 'json',
-            contentType: 'application/json',    
-            success: function(result){
-              console.log(result);
-              if(result.msg == "success"){
-                alert("We will email/message you the requested photos. Thank you!!")
-              }
-            }
-    });
-
-  })
-
-    
-    
- 
-  
-    
-});
-</script>  
-
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.min.js"></script>
